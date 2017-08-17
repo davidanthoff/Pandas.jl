@@ -73,7 +73,7 @@ end
 
 function Base.values(x::PandasWrapped)
     pyarray = convert(PyArray, x.pyo["values"])
-    @compat unsafe_wrap(Array, pyarray.data, size(pyarray))
+    unsafe_wrap(Array, pyarray.data, size(pyarray))
 end
 
 """
